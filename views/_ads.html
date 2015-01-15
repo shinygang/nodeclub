@@ -1,0 +1,66 @@
+<%
+  var ads = [
+    {
+      href: 'http://www.jiankongbao.com/',
+      label: 'jiankongbao',
+      img_src: '//dn-cnode.qbox.me/FgmVTKMF2UkvCNpZzrsn4PHdbxlf',
+    },
+    {
+      href: 'http://www.oschina.net/question/2281750_238526',
+      label: 'tingyun',
+      img_src: '//dn-cnode.qbox.me/FvyEebu7sETdFuuyU9R5KoZlSXKy',
+    },
+    /*
+    20150526过期不更新
+    {
+      href: 'https://campaign.gitcafe.com/leapmotion2015',
+      label: 'gitcafe',
+      img_src: '//dn-cnode.qbox.me/FvU2wKg1Hk4mGMjAxmxu9woYnpdz',
+    },
+    竟然是个需要登录的网址
+    {
+      href: 'https://portal.qiniu.com/hb/?utm_campaign=hb&utm_source=cnode&utm_medium=advposition&utm_content=png',
+      label: 'qiniu-event',
+      img_src: '//dn-cnode.qbox.me/FqFdDaC0q3T2EckLEgU9PANuwj9J',
+    },
+    */
+    {
+      href: 'https://talk.ai/?s=cnodejs',
+      label: 'teambition',
+      img_src: '//dn-cnode.qbox.me/FsJ2QW9zAHLvrPgC767PvuMWBkRQ',
+    },
+    {
+      href: 'http://www.yuntongxun.com/api/im?kw=cnode',
+      label: 'yuntongxun',
+      img_src: '//dn-cnode.qbox.me/Fpf54opoL9Z-Bof_0ix1qPEX0To7',
+    },
+    {
+      href: 'http://oneapm.com/index.html?utm_source=cnodejs&utm_medium=billboard&utm_term=Specialty&utm_campaign=techcommunity&from=maadfijuno',
+      label: 'oneapm',
+      img_src: '//dn-cnode.qbox.me/Fp9zM7uKaH8Q0Q5yhFLC8_5lkH-9',
+    },
+    {
+      href: 'http://www.jpush.cn/common/im',
+      label: 'jpush',
+      img_src: '//dn-cnode.qbox.me/Fq8DZ0tywJBQzwTHb51RKXaSWWJf',
+    },
+  ];
+
+    var randomNum = (new Date()).getHours() % ads.length;
+
+    ads = ads.slice(randomNum).concat(ads.slice(0, randomNum));
+%>
+<div class='panel'>
+  <div class='inner ads'>
+
+    <% ads.forEach(function (adObj, idx) { %>
+      <% if (idx !== 0) { %>
+        <div class="sep10"></div>
+      <% } %>
+      <a href="<%-adObj.href%>" target="_blank" class="banner sponsor_outlink"
+    data-label="<%=adObj.label%>">
+        <img src="<%- staticFile(adObj.img_src) %>">
+      </a>
+    <% }) %>
+  </div>
+</div>
